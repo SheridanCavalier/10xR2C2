@@ -290,7 +290,7 @@ def make_consensus(group, path, input_path, cell, barcode):
     queryFq = open(path+'/querytemp.fastq','a') #make temp fasta for query sequences (all other reads in batch)
     for key in group:
         subreads=int(key.split('_')[3])
-        if subreads > previoussub:
+        if subreads >= previoussub: #changed from '>' to '>=' to accomodate 0 repeat reads
             previoussub=subreads
             best=key
     targetFa.write('>%s\n%s\n' % (best,group[best]))
