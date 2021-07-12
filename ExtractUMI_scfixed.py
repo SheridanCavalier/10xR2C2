@@ -81,9 +81,8 @@ reads5 = read_fasta(input5)
 reads3 = read_fasta(input3)
 reads = read_fasta(input_reads)
 
-out = open(output_path + '/210222_R2C2_Consensus.UMI', 'w')
-excluded=[]
-total=[]
+out = open(output_path + '/R2C2_Consensus.UMI', 'w')
+
 for read in reads:
     name=read
     total=total+[1]
@@ -107,8 +106,7 @@ for read in reads:
     else:
         sequence3 = ''
         UMI3=''
-    if UMI3==''or UMI5=='':
-        excluded=excluded+[1]
+    #if UMI3==''or UMI5=='':
+        #excluded=excluded+[1]
     out.write('%s\t%s\t%s\n' %(name, UMI5, UMI3))
-percentage=(len(excluded)/len(total))*100
-print('UMI5 or UMI3 not found for %s percent of reads' %percentage)
+
