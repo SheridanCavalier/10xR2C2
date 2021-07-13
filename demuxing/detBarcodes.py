@@ -49,7 +49,7 @@ def tallyReads(reads, barcodes):
         if cellBC in barcodes:
             barcodes[cellBC] += 1
             totalmatched +=1
-    print('%s out of %s total reads had exact matches to canonical barcodes'%(totalmatched, total))
+    #print('%s out of %s total reads had exact matches to canonical barcodes'%(totalmatched, total))
     return barcodes,totalmatched
 
 def makeHist(counts):
